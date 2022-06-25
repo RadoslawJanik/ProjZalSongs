@@ -9,23 +9,23 @@ using ProjZalSongs.Models;
 namespace ProjZalSongs.Migrations
 {
     [DbContext(typeof(SongsDbContext))]
-    [Migration("20220623214211_Initial Migration")]
-    partial class InitialMigration
+    [Migration("20220625130913_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0");
+                .HasAnnotation("ProductVersion", "5.0.17")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("ProjZalSongs.Models.Songs", b =>
                 {
                     b.Property<int>("SongID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("SongDuration")
                         .HasColumnType("nvarchar(100)");
